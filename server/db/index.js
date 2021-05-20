@@ -9,4 +9,20 @@ var mysql = require('mysql');
 // OR
 // user: 'root', password: 'some_password_you_created_at_install'
 
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'password',
+  database: 'chat'
+});
 
+connection.connect((err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('database connected');
+});
+
+module.exports = connection;
+
+// ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'
